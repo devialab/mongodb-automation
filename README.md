@@ -3,7 +3,7 @@ mongodb-automation
 
 mongodb-automation is a docker image that allows you to deploy MongoDB instances using [MMS Automation service](https://mms.mongodb.com). The image provides a pre-installed and configured MMS Automation agent.
 
-[See image in Docker Hub](https://registry.hub.docker.com/u/mcascallares/mongodb-automation/).
+[See image in Docker Hub](https://registry.hub.docker.com/u/devialab/mongodb-automation/).
 
 
 Examples
@@ -15,10 +15,11 @@ Launch a single mongodb-automation container where we are going to deploy one or
 
     docker run -d \
         -p 27017:27017 \
-        mcascallares/mongodb-automation:latest \
-        --mmsBaseUrl=https://mms.mongodb.com \
-        --mmsGroupId=<your_mms_group_id> \
-        --mmsApiKey=<your_mms_api_key>
+        devialab/mongodb-automation:latest \
+        -mmsBaseUrl=https://cloud.mongodb.com \
+        -mmsGroupId=<your_mms_group_id> \
+        -mmsApiKey=<your_mms_api_key>
+        -logLevel=DOOM
 
 
 From the MMS interface configure MongoDB to deploy with the desired options.
@@ -57,10 +58,10 @@ In this example I will use [Skydock](https://github.com/crosbymichael/skydock) t
         -h mongod1.mongodb-automation.dev.docker \
         --dns 172.17.42.1 \
         -p 27017:27000 \
-        mcascallares/mongodb-automation:latest \
-        --mmsBaseUrl=https://mms.mongodb.com \
-        --mmsGroupId=<your_mms_group_id> \
-        --mmsApiKey=<your_mms_api_key>
+        devialab/mongodb-automation:latest \
+        -mmsBaseUrl=https://cloud.mongodb.com \
+        -mmsGroupId=<your_mms_group_id> \
+        -mmsApiKey=<your_mms_api_key>
 
 
     docker run -d \
@@ -68,10 +69,10 @@ In this example I will use [Skydock](https://github.com/crosbymichael/skydock) t
         -h mongod2.mongodb-automation.dev.docker \
         --dns 172.17.42.1 \
         -p 27018:27000 \
-        mcascallares/mongodb-automation:latest \
-        --mmsBaseUrl=https://mms.mongodb.com \
-        --mmsGroupId=<your_group_id> \
-        --mmsApiKey=<your_mms_api_key>
+        devialab/mongodb-automation:latest \
+        -mmsBaseUrl=https://cloud.mongodb.com \
+        -mmsGroupId=<your_group_id> \
+        -mmsApiKey=<your_mms_api_key>
 
 
     docker run -d \
@@ -79,10 +80,10 @@ In this example I will use [Skydock](https://github.com/crosbymichael/skydock) t
         -h mongod3.mongodb-automation.dev.docker \
         --dns 172.17.42.1 \
         -p 27019:27000 \
-        mcascallares/mongodb-automation:latest \
-        --mmsBaseUrl=https://mms.mongodb.com \
-        --mmsGroupId=<your_group_id> \
-        --mmsApiKey=<your_mms_api_key>
+        devialab/mongodb-automation:latest \
+        -mmsBaseUrl=https://cloud.mongodb.com \
+        -mmsGroupId=<your_group_id> \
+        -mmsApiKey=<your_mms_api_key>
 
 
 
@@ -109,9 +110,9 @@ We can deploy the same idea described in the point below but using a single entr
     mongod1:
         image: mcascallares/mongodb-automation:latest
         command: >
-            --mmsBaseUrl=https://mms.mongodb.com
-            --mmsGroupId=<your_mms_group_id>
-            --mmsApiKey=<your_mms_api_key>
+            -mmsBaseUrl=https://cloud.mongodb.com
+            -mmsGroupId=<your_mms_group_id>
+            -mmsApiKey=<your_mms_api_key>
         hostname: mongod1.mongodb-automation.dev.docker
         ports:
             - 27017:2700
@@ -120,9 +121,9 @@ We can deploy the same idea described in the point below but using a single entr
     mongod2:
         image: mcascallares/mongodb-automation:latest
         command: >
-            --mmsBaseUrl=https://mms.mongodb.com
-            --mmsGroupId=<your_mms_group_id>
-            --mmsApiKey=<your_mms_api_key>
+            -mmsBaseUrl=https://cloud.mongodb.com
+            -mmsGroupId=<your_mms_group_id>
+            -mmsApiKey=<your_mms_api_key>
         hostname: mongod2.mongodb-automation.dev.docker
         ports:
             - 27018:2700
@@ -131,9 +132,9 @@ We can deploy the same idea described in the point below but using a single entr
     mongod3:
         image: mcascallares/mongodb-automation:latest
         command: >
-            --mmsBaseUrl=https://mms.mongodb.com
-            --mmsGroupId=<your_mms_group_id>
-            --mmsApiKey=<your_mms_api_key>
+            -mmsBaseUrl=https://cloud.mongodb.com
+            -mmsGroupId=<your_mms_group_id>
+            -mmsApiKey=<your_mms_api_key>
         hostname: mongod3.mongodb-automation.dev.docker
         ports:
             - 27019:2700
