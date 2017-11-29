@@ -10,8 +10,8 @@ RUN apt-get -qqy update && \
 
 # MMS automation
 VOLUME /var/lib/mongodb-mms-automation
-ADD https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager_2.6.0.1551-1_amd64.ubuntu1604.deb /root/mongodb-mms-automation-agent-manager_2.6.0.deb
-RUN dpkg -i /root/mongodb-mms-automation-agent-manager_2.6.0.deb
+ADD https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager_latest_amd64.deb /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
+RUN dpkg -i /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
 
 # MongoDB data volume
 VOLUME /data
