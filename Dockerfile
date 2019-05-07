@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Alexander De Leon "alex@devialab.com"
 
 ENV REFRESHED_AT 2019-05-07
@@ -6,7 +6,8 @@ ENV REFRESHED_AT 2019-05-07
 RUN apt-get -qqy update && \
     apt-get install -qqy \
         ca-certificates \
-        libsasl2-2
+        libsasl2-2 \
+        libgssapi-krb5-2 
 
 # MMS automation
 VOLUME /var/lib/mongodb-mms-automation
