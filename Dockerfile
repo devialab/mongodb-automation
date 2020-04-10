@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER Alexander De Leon "alex@devialab.com"
 
-ENV REFRESHED_AT 2019-05-07
+ENV REFRESHED_AT 2020-04-10
 
 RUN apt-get -qqy update && \
     apt-get install -qqy \
