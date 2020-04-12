@@ -6,9 +6,9 @@ ENV REFRESHED_AT 2020-04-10
 RUN apt-get -qqy update && \
     apt-get install -qqy \
         ca-certificates \
-        libsasl2-2 \
-        libgssapi-krb5-2 
-
+        libcurl3 libgssapi-krb5-2 \
+        libkrb5-dbg libldap-2.4-2 libpci3 libsasl2-2 snmp \
+        liblzma5 openssl
 # MMS automation
 VOLUME /var/lib/mongodb-mms-automation
 ADD https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager_10.13.2.6252-1_amd64.ubuntu1604.deb /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
