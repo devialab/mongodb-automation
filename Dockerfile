@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Alexander De Leon "alex@devialab.com"
 
-ENV REFRESHED_AT 2020-04-10
+ENV REFRESHED_AT 2020-07-22
 
 RUN apt-get -qqy update && \
     apt-get install -qqy \
@@ -11,7 +11,7 @@ RUN apt-get -qqy update && \
         liblzma5 openssl
 # MMS automation
 VOLUME /var/lib/mongodb-mms-automation
-ADD https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager_10.13.2.6252-1_amd64.ubuntu1604.deb /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
+ADD https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager_latest_amd64.ubuntu1604.deb /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
 RUN dpkg -i /root/mongodb-mms-automation-agent-manager_latest_amd64.deb
 
 # MongoDB data volume
